@@ -17,7 +17,7 @@ const ALL_PRODUCTS = [
   { id:7,  name:"Woven Mini Bag",            brand:"Bottega Veneta",  price:980,  orig:980,  cat:"Accessories", colors:["#C4A882","#1a1a1a"],           sizes:["OS"],               img:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&q=90", rating:5.0, isNew:true,  sale:false },
   { id:8,  name:"Merino Turtleneck",         brand:"Loro Piana",      price:460,  orig:460,  cat:"Clothing",    colors:["#F5F0E8","#1a1a1a","#8B7355"], sizes:["XS","S","M","L","XL"], img:"https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=90", rating:4.6, isNew:true,  sale:false },
   { id:9,  name:"Gold Chain Necklace",       brand:"Maison Margiela", price:340,  orig:340,  cat:"Accessories", colors:["#BFA46A","#C0C0C0"],           sizes:["OS"],               img:"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=90", rating:4.9, isNew:false, sale:false },
-  { id:10, name:"Tailored Midi Skirt",       brand:"Saint Laurent",   price:490,  orig:490,  cat:"Clothing",    colors:["#1a1a1a","#C4A882","#8B7355"], sizes:["XS","S","M","L"],   img:"https://images.unsplash.com/photo-1487222477894-8243a20a5f2a?w=800&q=90", rating:4.7, isNew:true,  sale:false },
+  { id:10, name:"Tailored Midi Skirt",       brand:"Saint Laurent",   price:490,  orig:490,  cat:"Clothing",    colors:["#1a1a1a","#C4A882","#8B7355"], sizes:["XS","S","M","L"],   img:"https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=800&q=90", rating:4.7, isNew:true,  sale:false },
   { id:11, name:"Merino Wool Scarf",         brand:"Loro Piana",      price:290,  orig:290,  cat:"Accessories", colors:["#C9B99A","#8B7355","#1a1a1a"], sizes:["OS"],               img:"https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=800&q=90", rating:4.8, isNew:false, sale:false },
   { id:12, name:"Relaxed Linen Shirt",       brand:"Celine",          price:299,  orig:420,  cat:"Clothing",    colors:["#F5F0E8","#1a1a1a","#C4A882"], sizes:["XS","S","M","L","XL"], img:"https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/F22330s.jpg?im=Resize,width=750", rating:4.6, isNew:false, sale:true  },
   { id:13, name:"Suede Chelsea Boots",       brand:"The Row",         price:820,  orig:820,  cat:"Accessories", colors:["#8B7355","#1a1a1a"],           sizes:["36","37","38","39","40","41"], img:"https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=800&q=90", rating:4.8, isNew:true,  sale:false },
@@ -41,7 +41,7 @@ const REVIEWS = [
   { id:1, name:"Amelia T.",   loc:"London", rating:5, text:"Absolutely stunning quality. The cashmere coat exceeded every expectation — worth every single penny.", product:"Cashmere Oversized Coat" },
   { id:2, name:"Sophie R.",   loc:"Paris",  rating:5, text:"The silk dress drapes beautifully. LUXE has become my go-to destination for true investment pieces.", product:"Silk Slip Dress" },
   { id:3, name:"Isabella M.", loc:"Milan",  rating:5, text:"Impeccable craftsmanship throughout. The leather tote is completely timeless — I get compliments everywhere I go.", product:"Leather Structured Tote" },
-  { id:4, name:"Charlotte D.",loc:"NYC",    rating:5, text:"The trench coat is perfect in every way. Fast shipping, beautiful packaging, and the quality speaks for itself.", product:"Red Jumper" },
+  { id:4, name:"Charlotte D.",loc:"NYC",    rating:5, text:"The red Jumper is perfect in every way. Fast shipping, beautiful packaging, and the quality speaks for itself.", product:"Red Jumper" },
 ];
 
 const sp  = { type:"spring", stiffness:300, damping:30 };
@@ -676,8 +676,7 @@ function Reviews(){
     </section>
   );
 }
-
-function Hero({onShop}){
+function Hero({onShop, basePath}){
   const ref=useRef(null);
   const op = 1;
   return(
@@ -953,7 +952,7 @@ export default function LUXE(){
       </AnimatePresence>
 
       {page==="home"&&(<>
-        <Hero onShop={goShop}/>
+   <Hero onShop={goShop} basePath={basePath} />
         <Marquee/>
 
         <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",borderBottom:"1px solid rgba(191,164,106,0.08)"}}>
