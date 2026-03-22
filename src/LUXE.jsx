@@ -683,7 +683,7 @@ function Hero({onShop}){
   return(
     <section ref={ref} style={{position:"relative",height:"100vh",overflow:"hidden"}}>
      <video autoPlay loop muted playsInline preload="none" style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",filter:"brightness(0.58) saturate(0.85)"}}>
-  <source src="/videos/hero.mp4" type="video/mp4"/>
+<source src="/LUXE-fashion-e-commerce-/videos/hero.mp4" type="video/mp4"/>
       </video>
       <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom,rgba(0,0,0,0.38) 0%,rgba(0,0,0,0.05) 40%,rgba(0,0,0,0.65) 100%)"}}/>
       <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse at center,transparent 35%,rgba(0,0,0,0.45) 100%)"}}/>
@@ -1032,7 +1032,7 @@ export default function LUXE(){
 
           <div style={{margin:"0 48px 40px",borderRadius:18,overflow:"hidden",position:"relative",height:280}}>
           <video autoPlay loop muted playsInline preload="none" style={{width:"100%",height:"100%",objectFit:"cover",filter:"brightness(0.48) saturate(0.7)"}}>
- <source src="/videos/lookbook.mp4" type="video/mp4"/>
+ <source src="/LUXE-fashion-e-commerce-/videos/lookbook.mp4" type="video/mp4"/>
 </video>
             <div style={{position:"absolute",inset:0,background:"linear-gradient(to right,rgba(7,7,7,0.7) 0%,transparent 40%,transparent 60%,rgba(7,7,7,0.7) 100%)"}}/>
             <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:12}}>
@@ -1105,7 +1105,7 @@ export default function LUXE(){
         <section style={{position:"relative",padding:"120px 48px",overflow:"hidden",minHeight:640}}>
        <video autoPlay loop muted playsInline preload="none"
   style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",opacity:0.5,filter:"saturate(0.6) brightness(0.75)"}}>
-  <source src="/videos/product-bg.mp4" type="video/mp4"/>
+<source src="/LUXE-fashion-e-commerce-/videos/product-bg.mp4" type="video/mp4"/>
 </video>
           <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(7,7,7,0.7) 0%,rgba(15,10,3,0.58) 100%)"}}/>
           <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse at center,transparent 38%,rgba(0,0,0,0.5) 100%)"}}/>
