@@ -217,6 +217,7 @@ function SearchPanel({open,onClose,onView}){
   );
 }
 
+// ─── Account Panel — FIXED (no stray wishlist button) ─────────────────────────
 function AccountPanel({open,onClose}){
   const [tab,setTab]=useState("login");
   const [form,setForm]=useState({email:"",password:"",name:""});
@@ -499,6 +500,7 @@ function CartDrawer({open,onClose,cart,onQty,onRemove}){
   );
 }
 
+// ─── Quick View — FIXED: wishlist btn + bright visible icons ──────────────────
 function QuickView({product,onClose,onAdd,onWish,wishlist}){
   const [size,setSize]=useState(null);
   const [color,setColor]=useState(product.colors[0]);
@@ -566,15 +568,21 @@ function QuickView({product,onClose,onAdd,onWish,wishlist}){
               <span style={{color:"#fff",minWidth:20,textAlign:"center",fontSize:14,fontWeight:500}}>{qty}</span>
               <motion.button whileTap={{scale:0.8}} onClick={()=>setQty(q=>q+1)} style={{background:"none",border:"none"}}><Plus size={12} color="#777"/></motion.button>
             </div>
+
+            {/* ── Add to Bag ── */}
             <motion.button whileHover={{scale:1.02,boxShadow:"0 0 30px rgba(191,164,106,0.3)"}} whileTap={{scale:0.96}} onClick={handle}
               style={{padding:"15px",borderRadius:8,fontSize:10,letterSpacing:"0.25em",textTransform:"uppercase",fontWeight:600,color:added?"#fff":"#000",background:added?"#2D6A4F":"linear-gradient(135deg,#BFA46A,#E8D5A3,#8C7540)",border:"none",cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:8,transition:"background 0.3s",fontFamily:"'Montserrat',sans-serif"}}>
               {added?<><Check size={14}/> Added to Bag</>:"Add to Bag"}
             </motion.button>
+
+            {/* ── Save to Wishlist — FIXED: correct placement, functional ── */}
             <motion.button whileTap={{scale:0.95}} onClick={handleWish}
               style={{padding:"12px",borderRadius:8,fontSize:10,letterSpacing:"0.2em",textTransform:"uppercase",border:`1px solid ${wishedLocal?"#BFA46A":"rgba(191,164,106,0.3)"}`,background:wishedLocal?"rgba(191,164,106,0.1)":"transparent",color:wishedLocal?"#BFA46A":"rgba(191,164,106,0.8)",display:"flex",alignItems:"center",justifyContent:"center",gap:8,transition:"all 0.25s",fontFamily:"'Montserrat',sans-serif",fontWeight:500}}>
               <Heart size={14} fill={wishedLocal?"#BFA46A":"none"} color={wishedLocal?"#BFA46A":"rgba(191,164,106,0.8)"}/>
               {wishedLocal?"Saved to Wishlist":"Save to Wishlist"}
             </motion.button>
+
+            {/* ── Info strip — FIXED: fully visible, interactive ── */}
             <div style={{display:"flex",gap:0,borderRadius:8,overflow:"hidden",border:"1px solid rgba(191,164,106,0.18)"}}>
               {[
                 [Truck,   "Free Shipping",  "On all orders"],
@@ -669,19 +677,20 @@ function Reviews(){
   );
 }
 
-function Hero({onShop, basePath}){
+function Hero({onShop}){
   const ref=useRef(null);
+  const op = 1;
   return(
     <section ref={ref} style={{position:"relative",height:"100vh",overflow:"hidden"}}>
-      <video autoPlay loop muted playsInline preload="none" style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",filter:"brightness(0.58) saturate(0.85)"}}>
-        <source src={`${basePath}videos/hero.mp4`} type="video/mp4"/>
-      </video>
+<video autoPlay loop muted playsInline preload="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.58) saturate(0.85)" }}>
+  <source src={`${basePath}/videos/hero.mp4`} type="video/mp4" />
+</video>
       <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom,rgba(0,0,0,0.38) 0%,rgba(0,0,0,0.05) 40%,rgba(0,0,0,0.65) 100%)"}}/>
       <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse at center,transparent 35%,rgba(0,0,0,0.45) 100%)"}}/>
       <div style={{position:"absolute",inset:0,opacity:0.03,backgroundImage:"url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",backgroundSize:"180px"}}/>
       <div style={{position:"absolute",top:0,left:0,right:0,height:100,background:"linear-gradient(to bottom,rgba(0,0,0,0.7),transparent)"}}/>
       <div style={{position:"absolute",bottom:0,left:0,right:0,height:160,background:"linear-gradient(to top,rgba(7,7,7,1),transparent)"}}/>
-      <motion.div style={{position:"relative",zIndex:10,height:"100%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",textAlign:"center",padding:"0 24px"}}>
+      <motion.div style={{opacity:op,position:"relative",zIndex:10,height:"100%",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",textAlign:"center",padding:"0 24px"}}>
         <motion.div initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} transition={{delay:0.3,duration:1}}
           style={{display:"flex",alignItems:"center",gap:18,marginBottom:36}}>
           <div style={{width:48,height:1,background:"rgba(191,164,106,0.6)"}}/>
@@ -828,8 +837,8 @@ export default function LUXE(){
   const shopRef                 =useRef(null);
   const [lookIdx,setLookIdx]    =useState(0);
 
-  // ── FIXED: use Vite's BASE_URL so paths work on GitHub Pages ──
-  const basePath = import.meta.env.BASE_URL;
+  // ✅ FIX: Add basePath here
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   useEffect(()=>{ if(page!=="home") window.scrollTo(0,0); },[page]);
 
@@ -944,7 +953,7 @@ export default function LUXE(){
       </AnimatePresence>
 
       {page==="home"&&(<>
-        <Hero onShop={goShop} basePath={basePath}/>
+        <Hero onShop={goShop}/>
         <Marquee/>
 
         <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",borderBottom:"1px solid rgba(191,164,106,0.08)"}}>
@@ -1025,9 +1034,9 @@ export default function LUXE(){
           </div>
 
           <div style={{margin:"0 48px 40px",borderRadius:18,overflow:"hidden",position:"relative",height:280}}>
-            <video autoPlay loop muted playsInline preload="none" style={{width:"100%",height:"100%",objectFit:"cover",filter:"brightness(0.48) saturate(0.7)"}}>
-              <source src={`${basePath}videos/lookbook.mp4`} type="video/mp4"/>
-            </video>
+    <video autoPlay loop muted playsInline preload="none" style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.48) saturate(0.7)" }}>
+  <source src={`${basePath}/videos/lookbook.mp4`} type="video/mp4" />
+</video>
             <div style={{position:"absolute",inset:0,background:"linear-gradient(to right,rgba(7,7,7,0.7) 0%,transparent 40%,transparent 60%,rgba(7,7,7,0.7) 100%)"}}/>
             <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:12}}>
               <div style={{display:"flex",alignItems:"center",gap:16}}>
@@ -1097,9 +1106,9 @@ export default function LUXE(){
         <Reviews/>
 
         <section style={{position:"relative",padding:"120px 48px",overflow:"hidden",minHeight:640}}>
-          <video autoPlay loop muted playsInline preload="none" style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",opacity:0.5,filter:"saturate(0.6) brightness(0.75)"}}>
-            <source src={`${basePath}videos/product-bg.mp4`} type="video/mp4"/>
-          </video>
+<video autoPlay loop muted playsInline preload="none" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.5, filter: "saturate(0.6) brightness(0.75)" }}>
+  <source src={`${basePath}/videos/product-bg.mp4`} type="video/mp4" />
+</video>
           <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(7,7,7,0.7) 0%,rgba(15,10,3,0.58) 100%)"}}/>
           <div style={{position:"absolute",inset:0,background:"radial-gradient(ellipse at center,transparent 38%,rgba(0,0,0,0.5) 100%)"}}/>
           <div style={{position:"relative",zIndex:10,maxWidth:700,margin:"0 auto",textAlign:"center"}}>
@@ -1213,6 +1222,7 @@ export default function LUXE(){
       <WishlistPanel open={wishOpen} onClose={()=>setWishOpen(false)} wishIds={wish} onView={setQv} onRemove={remWish} onAddToCart={addToCart}/>
       <CartDrawer   open={cartOpen}  onClose={()=>setCartOpen(false)} cart={cart} onQty={updQty} onRemove={remItem}/>
       <AnimatePresence>
+        {/* Pass onWish and wishlist into QuickView so the Save button works */}
         {qv&&<QuickView product={qv} onClose={()=>setQv(null)} onAdd={addToCart} onWish={togWish} wishlist={wish}/>}
       </AnimatePresence>
       <AnimatePresence>
