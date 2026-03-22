@@ -41,7 +41,7 @@ const REVIEWS = [
   { id:1, name:"Amelia T.",   loc:"London", rating:5, text:"Absolutely stunning quality. The cashmere coat exceeded every expectation — worth every single penny.", product:"Cashmere Oversized Coat" },
   { id:2, name:"Sophie R.",   loc:"Paris",  rating:5, text:"The silk dress drapes beautifully. LUXE has become my go-to destination for true investment pieces.", product:"Silk Slip Dress" },
   { id:3, name:"Isabella M.", loc:"Milan",  rating:5, text:"Impeccable craftsmanship throughout. The leather tote is completely timeless — I get compliments everywhere I go.", product:"Leather Structured Tote" },
-  { id:4, name:"Charlotte B.",loc:"NYC",    rating:5, text:"The trench coat is perfect in every way. Fast shipping, beautiful packaging, and the quality speaks for itself.", product:"Red Jumper" },
+  { id:4, name:"Charlotte D.",loc:"NYC",    rating:5, text:"The trench coat is perfect in every way. Fast shipping, beautiful packaging, and the quality speaks for itself.", product:"Red Jumper" },
 ];
 
 const sp  = { type:"spring", stiffness:300, damping:30 };
