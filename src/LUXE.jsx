@@ -966,7 +966,7 @@ function Hero({onShop,basePath}){
     <section style={{position:"relative",height:"100svh",minHeight:520,overflow:"hidden"}}>
       <video autoPlay loop muted playsInline preload="none"
         style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",filter:"brightness(0.55) saturate(0.85)"}}>
-        <source src={`${basePath}/videos/hero.mp4`} type="video/mp4"/>
+      <source src="/videos/hero.mp4" type="video/mp4"/>
       </video>
       {/* Fallback always shown behind video */}
       <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,#1a0f00 0%,#070707 60%)"}}/>
@@ -1390,7 +1390,7 @@ export default function LUXE(){
                        position:"relative",height:mobile?160:240}}>
             <video autoPlay loop muted playsInline preload="none"
               style={{width:"100%",height:"100%",objectFit:"cover",filter:"brightness(0.45) saturate(0.7)"}}>
-              <source src={`${basePath}/videos/lookbook.mp4`} type="video/mp4"/>
+          <source src="/videos/lookbook.mp4" type="video/mp4"/>
             </video>
             <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,#0f0800,#070707)"}}/>
             <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:8}}>
