@@ -29,10 +29,10 @@ const ALL_PRODUCTS = [
 const LOOKBOOK = [
   { id:1, img:"https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=700&q=90&fit=crop&h=1000", title:"Urban Nomad",    desc:"Oversized coat · Leather boots",  products:[1,6] },
   { id:2, img:"https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700&q=90&fit=crop&h=1000", title:"Parisian Dusk",  desc:"Silk dress · Gold accessories",    products:[3,9] },
-  { id:3, img:"https://images.unsplash.com/photo-1509631179647-0177331693ae?w=700&q=90&fit=crop&h=1000", title:"Quiet Luxury",   desc:"Cashmere knit · Tailored coat",    products:[5,1] },
-  { id:4, img:"https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=700&q=90&fit=crop&h=1000", title:"The Edit",       desc:"Leather tote · Blazer",            products:[2,4] },
+  { id:3, img:"https://images.unsplash.com/photo-1509631179647-0177331693ae?w=700&q=90&fit=crop&h=1000", title:"Quiet Luxury",   desc:"Cashmere knit · Conscious Poet Tee",    products:[5,1] },
+  { id:4, img:"https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=700&q=90&fit=crop&h=1000", title:"The Edit",       desc:"Leather tote · Structured Tote",            products:[2,4] },
   { id:5, img:"https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=700&q=90&fit=crop&h=1000", title:"Maison Mood",    desc:"Slip dress · Chain necklace",      products:[3,9] },
-  { id:6, img:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=700&q=90&fit=crop&h=1000", title:"Golden Hour",    desc:"Satin blouse · Midi skirt",        products:[14,10] },
+  { id:6, img:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=700&q=90&fit=crop&h=1000", title:"Golden Hour",    desc:"Satin blouse · white blouse",        products:[14,10] },
   { id:7, img:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=700&q=90&fit=crop&h=1000", title:"After Dark",     desc:"Silk dress · Ankle boots",         products:[3,6] },
   { id:8, img:"https://images.unsplash.com/photo-1475180098004-ca77a66827be?w=700&q=90&fit=crop&h=1000", title:"Structured Day", desc:"Trench coat · Shoulder bag",       products:[15,16] },
 ];
@@ -54,6 +54,156 @@ const fadeUp = {
 
 const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* ========== RESPONSIVE STYLES ========== */
+/* Mobile Styles (up to 768px) */
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+  
+  /* Navigation */
+  .nav-glass {
+    padding: 0 20px !important;
+    height: 60px !important;
+  }
+  
+  .nav-glass .gold {
+    font-size: 18px !important;
+    letter-spacing: 0.3em !important;
+  }
+  
+  /* Hide desktop navigation on mobile */
+  .nav-glass > div:first-of-type {
+    display: none !important;
+  }
+  
+  .icon-btn {
+    transform: scale(0.9);
+  }
+  
+  /* Hero Section */
+  section:first-of-type {
+    height: 80vh !important;
+  }
+  
+  section:first-of-type h1 {
+    font-size: clamp(32px, 10vw, 54px) !important;
+  }
+  
+  section:first-of-type button {
+    padding: 12px 28px !important;
+    font-size: 8px !important;
+  }
+  
+  /* Stats Grid - 2 columns on mobile */
+  div[style*="grid-template-columns: repeat(4,1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* Feature Grid - 2 columns on mobile */
+  div[style*="grid-template-columns: repeat(4,1fr)"] + div {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* Product Grid */
+  div[style*="grid-template-columns: repeat(auto-fill,minmax(260px,1fr))"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+  
+  /* Lookbook Grid - 1 column on mobile */
+  div[style*="grid-template-columns: repeat(3,1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  
+  .lookbook-item {
+    height: 400px !important;
+  }
+  
+  /* Sections Padding */
+  section, footer {
+    padding: 40px 20px !important;
+  }
+  
+  /* Typography */
+  h2 {
+    font-size: clamp(28px, 6vw, 38px) !important;
+  }
+  
+  /* Cards */
+  .card-wrap {
+    aspect-ratio: 3/4 !important;
+  }
+  
+  /* Footer Grid */
+  footer > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  
+  /* Contact Page Grid */
+  div[style*="grid-template-columns: 1fr 1.4fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  
+  /* Quick View Modal */
+  div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Cart & Wishlist */
+  aside {
+    max-width: 100% !important;
+  }
+  
+  /* Touch targets for mobile */
+  button, .icon-btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .nav-link {
+    font-size: 8px !important;
+  }
+}
+
+/* Tablet Styles (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Product Grid - 3 columns on tablet */
+  div[style*="grid-template-columns: repeat(auto-fill,minmax(260px,1fr))"] {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  
+  /* Lookbook Grid - 2 columns on tablet */
+  div[style*="grid-template-columns: repeat(3,1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* Sections Padding */
+  section, footer {
+    padding: 60px 32px !important;
+  }
+  
+  /* Stats - 4 columns still on tablet */
+  div[style*="grid-template-columns: repeat(4,1fr)"] {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  
+  /* Features - 4 columns still on tablet */
+  div[style*="grid-template-columns: repeat(4,1fr)"] + div {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* Desktop Styles (1025px and up) */
+@media (min-width: 1025px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+/* ========== YOUR EXISTING CSS ========== */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Montserrat',sans-serif;cursor:none;background:#070707;overflow-x:hidden;}
 html{scroll-behavior:smooth;}
@@ -85,7 +235,6 @@ html{scroll-behavior:smooth;}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
 input,textarea,button{cursor:none!important;}
 `;
-
 // ─── Cursor ───────────────────────────────────────────────────────────────────
 function Cursor() {
   const ring = useRef(null);
