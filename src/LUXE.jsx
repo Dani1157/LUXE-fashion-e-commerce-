@@ -1145,8 +1145,7 @@ export default function LUXE(){
   const [lookIdx,setLookIdx] =useState(0);
   const {mobile,tablet}      =useBreakpoint();
 
-  const basePath = typeof import.meta!=="undefined"&&import.meta.env
-    ? (import.meta.env.BASE_URL||"").replace(/\/$/,"") : "";
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 
   // Scroll to top on page change
   useEffect(()=>{ if(page!=="home") window.scrollTo(0,0); },[page]);
