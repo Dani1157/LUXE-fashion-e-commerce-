@@ -1192,24 +1192,25 @@ export default function LUXE(){
             </div>
           </div>
 
-          {/* Lookbook banner */}
-          <div style={{margin:mobile?"0 20px 28px":"0 48px 36px",borderRadius:16,overflow:"hidden",position:"relative",height:mobile?180:260}}>
-            <video autoPlay loop muted playsInline preload="none"
-              style={{width:"100%",height:"100%",objectFit:"cover",filter:"brightness(0.48) saturate(0.7)"}}>
-              <source src={`${basePath}/videos/lookbook.mp4`} type="video/mp4"/>
-            </video>
-            {/* Fallback */}
-            <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,#0f0800,#070707)"}}/>
-            <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:10}}>
-              <div style={{display:"flex",alignItems:"center",gap:12}}>
-                <div style={{width:28,height:1,background:"rgba(191,164,106,0.5)"}}/>
-                <span style={{color:"rgba(191,164,106,0.9)",fontSize:8,letterSpacing:"0.45em",textTransform:"uppercase",fontWeight:600}}>Behind the Collection</span>
-                <div style={{width:28,height:1,background:"rgba(191,164,106,0.5)"}}/>
-              </div>
-              <h3 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:mobile?22:32,fontWeight:300,color:"#fff",letterSpacing:"0.02em",textAlign:"center",padding:"0 20px"}}>The Making of LUXE</h3>
-              <p style={{color:"rgba(255,255,255,0.4)",fontSize:10,letterSpacing:"0.12em"}}>SS26 Campaign</p>
-            </div>
-          </div>
+        {/* Lookbook banner */}
+<div style={{margin:mobile?"0 20px 28px":"0 48px 36px",borderRadius:16,overflow:"hidden",position:"relative",height:mobile?180:260}}>
+  <video autoPlay loop muted playsInline preload="none"
+    style={{width:"100%",height:"100%",objectFit:"cover",filter:"brightness(0.85) saturate(1.1)"}}>
+    <source src={`${basePath}/videos/lookbook.mp4`} type="video/mp4"/>
+  </video>
+  {/* Light gradient overlay - video will be visible */}
+  <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(15,8,0,0.2),rgba(7,7,7,0.3))"}}/>
+  <div style={{position:"absolute",inset:0,display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:10}}>
+    <div style={{display:"flex",alignItems:"center",gap:12}}>
+      <div style={{width:28,height:1,background:"rgba(191,164,106,0.5)"}}/>
+      <span style={{color:"rgba(191,164,106,0.9)",fontSize:8,letterSpacing:"0.45em",textTransform:"uppercase",fontWeight:600}}>Behind the Collection</span>
+      <div style={{width:28,height:1,background:"rgba(191,164,106,0.5)"}}/>
+    </div>
+    <h3 style={{fontFamily:"'Cormorant Garamond',serif",fontSize:mobile?22:32,fontWeight:300,color:"#fff",letterSpacing:"0.02em",textAlign:"center",padding:"0 20px"}}>The Making of LUXE</h3>
+    <p style={{color:"rgba(255,255,255,0.4)",fontSize:10,letterSpacing:"0.12em"}}>SS26 Campaign</p>
+  </div>
+</div>
+
 
           <motion.div initial={{scaleX:0}} whileInView={{scaleX:1}} viewport={{once:true}}
             transition={{duration:1.8,ease:[0.16,1,0.3,1]}}
